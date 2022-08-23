@@ -1,0 +1,48 @@
+[PrefixDeclaration]
+owl: http://www.w3.org/2002/07/owl#
+rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs: http://www.w3.org/2000/01/rdf-schema#
+ecise: http://www.ecise.eu/datamodel/v1/ecise/
+
+[MappingDeclaration] @collection [[
+
+mappingId   Vessel
+target		ecise:{vesselId} a ecise:Vessel ; ecise:name {name}^^xsd:string ; ecise:length {length}^^xsd:int ; ecise:draught {draught}^^xsd:int ; ecise:yearbuilt {yearbuilt}^^xsd:int .
+source      SELECT
+            "id" AS vesselId,
+            "name" AS name,
+            "length" AS length,
+            "draught" AS draught,
+            "constructionYear" AS yearbuilt
+            FROM vessel
+
+mappingId   Anomaly
+target		ecise:{anomalyId} a ecise:MaritimeAnomaly ; ecise:hasAnomalyAnomalyPriority ecise:{priority} ; ecise:hasAnomalyAnomalyConfidence ecise:{confidence} ; ecise:hasAnomalyConfirmationStatus ecise:{status} ; ecise:hasMaritimeAnomalyMaritimeAnomalyType {anomalyType} .
+source      SELECT
+            "id" AS anomalyId,
+            "priority" AS priority,
+            "confidence" AS confidence,
+            "confirmationStatus" AS status,
+            "type" AS anomalyType
+            FROM anomaly
+
+mappingId   AnomalyParenting
+target		ecise:{relationId} a ecise:EventEvent ; ecise:hasEventEventEvent ecise:{child} ; ecise:hasEventEventEvent ecise:{parent} .
+source      SELECT
+            CONCAT(id, parent) AS relationId,
+            "id" AS child,
+            "parent" AS parent
+            FROM anomaly
+
+mappingId   AnomalyLocation
+target		ecise:{anomalyLocationId} a ecise:EventLocation .
+source      SELECT
+            "id" AS anomalyId
+            FROM anomaly
+
+mappingId   Location
+target		ecise:{locationId} a ecise:EventLocation .
+source      SELECT
+            "id" AS anomalyId
+            FROM anomaly
+]]
