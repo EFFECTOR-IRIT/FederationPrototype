@@ -49,7 +49,7 @@ This will launch the Dremio service and a PostgreSQL database.
 
 - Run your favorite shell
 - Go to the project root directory
-- Go to the ontop directory : **cd ../ontop**
+- Go to the ontop directory : **cd ontop**
 - Launch ontop docker-compose : **docker-compose up -d**
 
 This will launch the Ontop service available on your web browser : http://localhost:8080.
