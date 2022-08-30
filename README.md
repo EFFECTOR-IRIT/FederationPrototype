@@ -1,6 +1,6 @@
 # OWL Representation of the Common Information Sharing Environment Data Scheme for the Maritime Domain - Ontop/Dremio Federation Prototype
 
-Institut de Recheche en Informatique de Toulouse
+Institut de Recheche en Informatique de Toulouse - IRIT
 
 ## General purpose
 

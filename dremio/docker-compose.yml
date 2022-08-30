@@ -1,9 +1,18 @@
 version: '3.4'
 
 services:
-  db:
+  db_vessel:
     build:
-      context: ./data/postgres-docker
+      context: ./data/postgres-vessel
+      dockerfile: Dockerfile
+    environment:
+       - POSTGRES_USER=postgres
+       - POSTGRES_PASSWORD=postgres
+    networks:
+      - federation
+  db_anomaly:
+    build:
+      context: ./data/postgres-anomaly
       dockerfile: Dockerfile
     environment:
        - POSTGRES_USER=postgres
