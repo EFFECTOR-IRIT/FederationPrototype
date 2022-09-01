@@ -102,6 +102,18 @@ CREATE TABLE anomaly.anomalies (
 
 ALTER TABLE anomaly.anomalies OWNER TO postgres;
 
+--
+-- Name: involvement; Type: TABLE; Schema: anomaly; Owner: postgres
+--
+
+CREATE TABLE anomaly.involvement (
+    vessel_id INTEGER NOT NULL references anomaly.vessel ON UPDATE CASCADE,
+    anomaly_id INTEGER NOT NULL references anomaly.anomalies ON UPDATE CASCADE ON DELETE CASCADE,
+    PRIMARY KEY(vessel_id, anomaly_id)
+);
+
+ALTER TABLE anomaly.involvement OWNER TO postgres;
+
 
 COPY anomaly.anomaly_type (label, description) FROM stdin;
 Smuggling	'Vessel is performing smuggling'
