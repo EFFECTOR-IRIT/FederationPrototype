@@ -143,7 +143,7 @@ VesselDynamicVsStaticAttributesInconsistency	'Generic vessel static attributes n
 VesselStaticAttributesInconsistency	'Vessel static attributes inconsistent'
 AisParameterCloned	'Two vessels having two or more AIS parameters the same'
 AisParameterChanged	'A vessel detected changing a static AIS parameter'
-IncongrousVesselBehavior	'The behavior pattern of a vessel is not coherent respect to the declared type' coming from AIS flow
+IncongrousVesselBehavior	'The behavior pattern of a vessel is not coherent respect to the declared type coming from AIS flow'
 HighSpeed	'Vessel is moving with high speed'
 LowSpeed	'Vessel is moving with low speed'
 Loitering	'Vessel is loitering'
